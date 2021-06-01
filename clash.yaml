@@ -61,6 +61,12 @@ proxy-groups:
       - REJECT
       - DIRECT
       - PROXY
+  - name: Advantest
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+      - PROXY
   - name: Apple
     type: select
     proxies:
@@ -1329,6 +1335,7 @@ rules:
   - DOMAIN-SUFFIX,me.com,Apple
   - DOMAIN-SUFFIX,mzstatic.com,Apple
   - DOMAIN,www-cdn.icloud.com.akadns.net,Apple
+  - DOMAIN-SUFFIX,advantest.com,Advantest
   - IP-CIDR,17.0.0.0/8,Apple,no-resolve
   - IP-CIDR,192.168.0.0/16,DIRECT
   - IP-CIDR,10.0.0.0/8,DIRECT
