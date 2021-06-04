@@ -51,9 +51,9 @@ proxies:
     server: 10.20.240.112
     port: 3128
   - name: Xuhui
-    type: http
+    type: socks5
     server: 10.150.17.152
-    port: 7890
+    port: 7891
 proxy-groups:
   - name: PROXY
     type: select
