@@ -23,10 +23,6 @@ dns:
     - tls://1.0.0.1:853
     - tls://dns.google:853
 cfw-bypass:
-  - qq.com
-  - taobao.com
-  - music.163.com
-  - "*.music.126.net"
   - localhost
   - 127.*
   - 10.*
