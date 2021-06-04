@@ -46,59 +46,71 @@ cfw-bypass:
   - <local>
 cfw-latency-timeout: 5000
 proxies:
-  - name: HomeProxy
+  - name: Office
     type: http
     server: 10.20.240.112
     port: 3128
+  - name: Xuhui
+    type: http
+    server: 10.150.17.152
+    port: 7890
 proxy-groups:
   - name: PROXY
     type: select
     proxies:
       - REJECT
       - DIRECT
-      - HomeProxy
+      - Office
+      - Xuhui
   - name: Final
     type: select
     proxies:
       - REJECT
       - DIRECT
       - PROXY
+      - Xuhui
   - name: Advantest
     type: select
     proxies:
       - REJECT
       - DIRECT
       - PROXY
+      - Xuhui
   - name: Apple
     type: select
     proxies:
       - REJECT
       - DIRECT
       - PROXY
+      - Xuhui
   - name: Microsoft
     type: select
     proxies:
       - REJECT
       - DIRECT
       - PROXY
+      - Xuhui
   - name: GlobalMedia
     type: select
     proxies:
       - REJECT
       - DIRECT
       - PROXY
+      - Xuhui
   - name: HKMTMedia
     type: select
     proxies:
       - REJECT
       - DIRECT
       - PROXY
+      - Xuhui
   - name: Hijacking
     type: select
     proxies:
       - REJECT
       - DIRECT
       - PROXY
+      - Xuhui
 rules:
   - DOMAIN-SUFFIX,googletraveladservices.com,DIRECT
   - DOMAIN,dl.google.com,DIRECT
