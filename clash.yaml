@@ -8,8 +8,7 @@ external-controller: 0.0.0.0:9090
 dns:
   enable: true
   listen: 0.0.0.0:5300   
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
+  enhanced-mode: redir-host
   nameserver:
     - 10.115.10.10
     - 10.120.10.29
@@ -24,12 +23,12 @@ dns:
     - tls://dns.google:853
 tun:
   enable: true
-  stack: system # or gvisor
+  #stack: system # or gvisor
   # macOS-auto-route: true
   # macOS-auto-detect-interface: true
+  stack: gvisor
   dns-hijack:
-    - 1.0.0.1:53
-    - tcp://1.1.1.1:53
+    - 0.0.0.0:53
 cfw-bypass:
   - localhost
   - 127.*
