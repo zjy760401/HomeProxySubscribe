@@ -22,6 +22,8 @@ dns:
   fallback:
     - tls://1.0.0.1:853
     - tls://dns.google:853
+tun:
+  enable: true
 cfw-bypass:
   - localhost
   - 127.*
@@ -62,7 +64,6 @@ proxy-groups:
       - DIRECT
       - Office
       - Xuhui
-    enable-udp: true
   - name: Final
     type: select
     proxies:
@@ -70,7 +71,6 @@ proxy-groups:
       - DIRECT
       - PROXY
       - Xuhui
-    enable-udp: true
   - name: Advantest
     type: select
     proxies:
@@ -78,7 +78,6 @@ proxy-groups:
       - DIRECT
       - PROXY
       - Xuhui
-    enable-udp: true
   - name: Apple
     type: select
     proxies:
@@ -86,7 +85,6 @@ proxy-groups:
       - DIRECT
       - PROXY
       - Xuhui
-    enable-udp: true
   - name: Microsoft
     type: select
     proxies:
@@ -101,7 +99,6 @@ proxy-groups:
       - DIRECT
       - PROXY
       - Xuhui
-    enable-udp: true
   - name: HKMTMedia
     type: select
     proxies:
@@ -109,7 +106,6 @@ proxy-groups:
       - DIRECT
       - PROXY
       - Xuhui
-    enable-udp: true
   - name: Hijacking
     type: select
     proxies:
@@ -117,7 +113,6 @@ proxy-groups:
       - DIRECT
       - PROXY
       - Xuhui
-    enable-udp: true
 rules:
   - DOMAIN-SUFFIX,googletraveladservices.com,DIRECT
   - DOMAIN,dl.google.com,DIRECT
