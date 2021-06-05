@@ -5,53 +5,39 @@ allow-lan: false
 mode: Rule
 log-level: info
 external-controller: 0.0.0.0:9090
+
+
+tun:
+  enable: true 
+  stack: gvisor  
+  device-url: dev://utun
+  dns-listen: 0.0.0.0:5300   
+  dns-hijack:
+   - tcp://8.8.8.8:53
+   - udp://8.8.8.8:53
+   - 10.115.10.10
+   - 114.114.114.114
+
 dns:
   enable: true
   listen: 0.0.0.0:5300   
   enhanced-mode: redir-host
   nameserver:
-    - 10.115.10.10
-    - 10.120.10.29
-    - 1.2.4.8
-    - 114.114.114.114
-    - 223.5.5.5
-    - tls://dns.rubyfish.cn:853
-    - tls://47.96.179.163:853
-    - tls://118.89.110.78:853
+   - udp://114.114.114.114
+   - tls://47.96.179.163:853
+   - tls://118.89.110.78:853
+   - udp://8.8.8.8:53
+   - tls://1.1.1.1:853
+   - 10.115.10.10
   fallback:
-    - tls://1.0.0.1:853
-    - tls://dns.google:853
-tun:
-  enable: true
-  #stack: system # or gvisor
-  # macOS-auto-route: true
-  # macOS-auto-detect-interface: true
-  stack: gvisor
-  dns-hijack:
-    - 0.0.0.0:53
-cfw-bypass:
-  - localhost
-  - 127.*
-  - 10.*
-  - 172.16.*
-  - 172.17.*
-  - 172.18.*
-  - 172.19.*
-  - 172.20.*
-  - 172.21.*
-  - 172.22.*
-  - 172.23.*
-  - 172.24.*
-  - 172.25.*
-  - 172.26.*
-  - 172.27.*
-  - 172.28.*
-  - 172.29.*
-  - 172.30.*
-  - 172.31.*
-  - 192.168.*
-  - <local>
-cfw-latency-timeout: 5000
+   - udp://114.114.114.114
+   - tls://118.89.110.78:853
+   - tcp://1.1.1.1
+  fallback-filter:
+   geoip: true
+   ipcidr:
+    - 240.0.0.0/4
+
 proxies:
   - name: Office
     type: http
@@ -70,12 +56,12 @@ proxy-groups:
       - Office
       - Xuhui
   - name: Final
-    type: select
+    type: fallback
     proxies:
-      - REJECT
-      - DIRECT
       - PROXY
-      - Xuhui
+      - DIRECT
+      #- REJECT
+      #- Xuhui
   - name: Advantest
     type: select
     proxies:
