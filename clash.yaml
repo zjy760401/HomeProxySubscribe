@@ -6,34 +6,29 @@ mode: Rule
 log-level: info
 external-controller: 0.0.0.0:9090
 
-
-tun:
-  enable: true 
-  stack: gvisor
-  dns-hijack:
-   - 10.115.10.10
-   - tcp://8.8.8.8:53
-   - udp://8.8.8.8:53
-   - 114.114.114.114
-
 dns:
   enable: true
+  listen: 0.0.0.0:5300   
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
   nameserver:
-   - 10.115.10.10
-   - udp://114.114.114.114
-   - tls://47.96.179.163:853
-   - tls://118.89.110.78:853
-   - udp://8.8.8.8:53
-   - tls://1.1.1.1:853
+    - 10.115.10.10
+    - 10.120.10.29
+    - 1.2.4.8
+    - udp://114.114.114.114
+    - 223.5.5.5
+    - tls://dns.rubyfish.cn:853
+    - tls://47.96.179.163:853
+    - tls://118.89.110.78:853
   fallback:
-   - 10.115.10.10
-   - udp://114.114.114.114
-   - tls://118.89.110.78:853
-   - tcp://1.1.1.1
+    - 10.115.10.10
+    - udp://114.114.114.114
+    - tls://1.0.0.1:853
+    - tls://dns.google:853
   fallback-filter:
-   geoip: true
-   ipcidr:
-    - 240.0.0.0/4
+    geoip: true
+    ipcidr:
+     - 240.0.0.0/4
 
 cfw-bypass:
   - qq.com
