@@ -1,7 +1,7 @@
 port: 7890
 socks-port: 7891
 redir-port: 7892
-allow-lan: false
+allow-lan: true
 mode: Rule
 log-level: info
 external-controller: 0.0.0.0:9090
@@ -36,7 +36,6 @@ cfw-bypass:
   - '*.music.126.net'
   - localhost
   - 127.*
-  - 10.*
   - 172.16.*
   - 172.17.*
   - 172.18.*
