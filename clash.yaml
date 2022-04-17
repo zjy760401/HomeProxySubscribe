@@ -33,6 +33,7 @@ proxies:
     password: zjy760401
     port: 8888    
     cipher: aes-128-gcm
+    udp: true
     
   - name: Xuhui-701
     type: ss
@@ -40,6 +41,7 @@ proxies:
     password: zjy760401
     port: 8888    
     cipher: aes-128-gcm
+    udp: true
   
   
 proxy-groups:
@@ -50,48 +52,48 @@ proxy-groups:
       - DIRECT
       - JP-Home
       - Xuhui-701
-  - name: Final
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-      - JP-Home
-      - Xuhui-701
-  - name: Apple
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-      - JP-Home
-      - Xuhui-701
-  - name: Microsoft
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-      - JP-Home
-      - Xuhui-701
-  - name: GlobalMedia
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-      - JP-Home
-      - Xuhui-701
-  - name: HKMTMedia
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-      - JP-Home
-      - Xuhui-701
-  - name: Hijacking
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-      - JP-Home
-      - Xuhui-701
+  # - name: Final
+  #   type: select
+  #   proxies:
+  #     - REJECT
+  #     - DIRECT
+  #     - JP-Home
+  #     - Xuhui-701
+  # - name: Apple
+  #   type: select
+  #   proxies:
+  #     - REJECT
+  #     - DIRECT
+  #     - JP-Home
+  #     - Xuhui-701
+  # - name: Microsoft
+  #   type: select
+  #   proxies:
+  #     - REJECT
+  #     - DIRECT
+  #     - JP-Home
+  #     - Xuhui-701
+  # - name: GlobalMedia
+  #   type: select
+  #   proxies:
+  #     - REJECT
+  #     - DIRECT
+  #     - JP-Home
+  #     - Xuhui-701
+  # - name: HKMTMedia
+  #   type: select
+  #   proxies:
+  #     - REJECT
+  #     - DIRECT
+  #     - JP-Home
+  #     - Xuhui-701
+  # - name: Hijacking
+  #   type: select
+  #   proxies:
+  #     - REJECT
+  #     - DIRECT
+  #     - JP-Home
+  #     - Xuhui-701
 # 专业版支持 rule-providers
 rule-providers:
   reject:
@@ -248,14 +250,14 @@ rules:
   - RULE-SET,icloud,DIRECT
   - MATCH,DIRECT
   
-  - RULE-SET,private,DIRECT
-  - RULE-SET,reject,REJECT
-  - RULE-SET,icloud,DIRECT
-  - RULE-SET,apple,DIRECT
-  - RULE-SET,google,DIRECT
-  - RULE-SET,proxy,PROXY
-  - RULE-SET,direct,DIRECT
-  - RULE-SET,telegramcidr,PROXY
-  - GEOIP,,DIRECT
-  - GEOIP,CN,DIRECT
-  - MATCH,PROXY
+  # - RULE-SET,private,DIRECT
+  # - RULE-SET,reject,REJECT
+  # - RULE-SET,icloud,DIRECT
+  # - RULE-SET,apple,DIRECT
+  # - RULE-SET,google,DIRECT
+  # - RULE-SET,proxy,PROXY
+  # - RULE-SET,direct,DIRECT
+  # - RULE-SET,telegramcidr,PROXY
+  # - GEOIP,,DIRECT
+  # - GEOIP,CN,DIRECT
+  # - MATCH,PROXY
